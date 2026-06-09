@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - DEPLOYPATH=/home/tobe6661/monstre.eureka.wf
+    - /bin/rsync -av --delete dist/ $DEPLOYPATH/
