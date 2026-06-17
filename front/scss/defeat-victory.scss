@@ -1,0 +1,36 @@
+@use "global";
+
+#slips-container {
+  display: none;
+  opacity: 0;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: global.$main-red;
+flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slip {
+  opacity: 0;
+  width: 20vw;
+}
+
+#defeat-message {
+  opacity: 0;
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  font-size: 3rem;
+  color: wheat;
+  white-space: nowrap;
+}

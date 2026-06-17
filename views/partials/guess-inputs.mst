@@ -1,0 +1,3 @@
+{{#inputs}}
+    <input class="guess-input" type="text" maxlength="1" inputmode="text"/>
+{{/ inputs}}

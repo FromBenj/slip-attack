@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bienvenue !</title>
+    <link rel="icon" type="image/x-icon" href="/images/website/logo.ico">
+    <script>document.documentElement.style.visibility = 'hidden'</script>
+</head>
+<body>
+<div id="welcome-page">
+    <div id="top-container"></div>
+    <div id="bottom-container">
+        {{> partials/player-profiles}}
+
+    </div>
+</div>
+
+<script type="module" src="{{mainScript}}"></script>
+</body>
+</html>

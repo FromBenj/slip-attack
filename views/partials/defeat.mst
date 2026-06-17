@@ -1,0 +1,12 @@
+<div id="defeat-message" class="bagel-font">
+    La prochaine fois, c'est la bonne !
+</div>
+
+<div id="slips-container">
+    <img class="slip" src="/images/slips/slip-blue.png" alt="Falling slip">
+    <img class="slip" src="/images/slips/slip-green.png" alt="Falling slip">
+    <img class="slip" src="/images/slips/slip-purple.png" alt="Falling slip">
+    <img class="slip" src="/images/slips/slip-red.png" alt="Falling slip">
+    <img class="slip" src="/images/slips/slip-white.png" alt="Falling slip">
+    <img class="slip" src="/images/slips/slip-yellow.png" alt="Falling slip">
+    </div>

@@ -1,0 +1,25 @@
+@use "global";
+
+#welcome-page {
+  background-color: global.$main-green;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#players-container {
+  width: 80%;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.avatar {
+  width: clamp(50px, 60%, 200px);
+  border-radius: 30px;
+  aspect-ratio: 1;
+}

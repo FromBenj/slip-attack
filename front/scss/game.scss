@@ -1,0 +1,140 @@
+@use "global";
+
+#game-page {
+  box-sizing: border-box;
+  background-color: global.$main-yellow;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#game-body {
+  opacity: 1;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 1rem 1rem 1rem;;
+}
+
+#central-container {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#bottom-container {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fries-plate-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  flex: 0.7;
+  min-height: 0;
+}
+
+#fries-plate {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 90px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+}
+
+#player-part {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+#guess-inputs-container {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.guess-input {
+  width: 55px;
+  aspect-ratio: 1;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px, rgba(0, 0, 0, 0.22) 0 5px 2px;
+  background-color: #ffffff94;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  font-size: 36px;
+  caret-color: transparent;
+  text-transform: uppercase;
+}
+
+.guess-input:focus, .input-filled {
+  background-color: white;
+  outline: none;
+  border-bottom: 4px yellow;
+}
+
+#guess-button {
+  opacity: 0.3;
+  margin: 10px;
+  border: none;
+  padding: 0 0.4rem;
+  background-color: global.$main-blue;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px, rgba(0, 0, 0, 0.22) 0 5px 2px;
+  height: 55px;
+}
+
+#question {
+  font-weight: bold;
+  text-align: center;
+}
+
+#lives-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.life {
+  opacity: 1;
+  height: 55px;
+  filter: contrast(0.85) brightness(1.1) saturate(0.8) sepia(0.1);
+  margin: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px, rgba(0, 0, 0, 0.22) 0 5px 2px;
+  background-color: global.$main-green;
+  padding: 0.3rem;
+  border-radius: 100%;
+  border: solid thin white;
+}

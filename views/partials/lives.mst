@@ -1,0 +1,3 @@
+{{#lives}}
+    <img class="life" src="/images/website/cook.png" alt="Chance">
+{{/ lives}}

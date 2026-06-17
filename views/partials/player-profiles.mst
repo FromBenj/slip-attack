@@ -1,0 +1,8 @@
+<div id="players-container">
+    {{#players}}
+        <div class="profile d-flex flex-column justify-content-center align-items-center w-100" data-id="{{id}}">
+            <img class="avatar" src="/images/profiles/{{avatar}}" alt="{{name}} profile">
+            <div class="fw-bold">{{name}}</div>
+        </div>
+    {{/ players}}
+</div>
