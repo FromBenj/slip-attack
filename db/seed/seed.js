@@ -9,17 +9,31 @@ const insertQuestion = db.prepare(`
   INSERT OR REPLACE INTO questions (title, answer, difficulty) VALUES (@title, @answer, @difficulty)
 `);
 
-const seedPlayers = db.transaction((players) => {
-    for (const player of players) {
-        insertPlayer.run(player);
+function seedPlayers(players) {
+    db.exec('BEGIN');
+    try {
+        for (const player of players) {
+            insertPlayer.run(player);
+        }
+        db.exec('COMMIT');
+    } catch (err) {
+        db.exec('ROLLBACK');
+        throw err;
     }
-});
+}
 
-const seedQuestions = db.transaction((questions) => {
-    for (const question of questions) {
-        insertQuestion.run(question);
+function seedQuestions(questions) {
+    db.exec('BEGIN');
+    try {
+        for (const question of questions) {
+            insertQuestion.run(question);
+        }
+        db.exec('COMMIT');
+    } catch (err) {
+        db.exec('ROLLBACK');
+        throw err;
     }
-});
+}
 
 seedPlayers(players);
 seedQuestions(questions);
