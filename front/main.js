@@ -8,8 +8,9 @@ import {askNewQues} from "./js/game.js";
 
 const welcome = document.getElementById("welcome-page");
 const game = document.getElementById("game-page");
+
+document.documentElement.style.visibility = 'visible';
 document.addEventListener("DOMContentLoaded", () => {
-    document.documentElement.style.visibility = 'visible';
     if (welcome) {
         choosePlayer();
     }
