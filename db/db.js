@@ -1,6 +1,6 @@
-import Database from 'better-sqlite3';
+import { DatabaseSync } from 'node:sqlite';
 
-const db = new Database('./game.db');
+const db = new DatabaseSync('./game.db');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS players
