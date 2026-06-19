@@ -1,7 +1,5 @@
 import express from "express";
 import session from 'express-session';
-import db from "./db/db.js";
-import BetterSqliteStore from 'better-sqlite3-session-store';
 import path from "node:path";
 import setRoutes from "./back/config/routes.js";
 import dotenv from "dotenv";
@@ -11,7 +9,6 @@ const root = process.cwd();
 dotenv.config({path: `.env.${process.env.NODE_ENV || "development"}`});
 
 const app = express();
-const Store = BetterSqliteStore(session);
 
 app.use(express.json());
 app.use(express.static(path.join(root, 'public')));
