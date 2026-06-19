@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenue !</title>
     <link rel="icon" type="image/x-icon" href="/images/website/logo.ico">
-<!--    <script>document.documentElement.style.visibility = 'hidden'</script>-->
 </head>
 <body>
 <div id="welcome-page">
