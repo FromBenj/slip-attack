@@ -7,12 +7,13 @@ import mustacheConfig from "./back/config/mustache-config.js";
 
 const root = process.cwd();
 if (process.env.NODE_ENV !== 'production') {
-    dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
+    dotenv.config({path: `.env.${process.env.NODE_ENV || 'development'}`});
 }
 
 const app = express();
 
 app.use(express.json());
+app.use(express.static(path.join(root, 'dist')));
 app.use(express.static(path.join(root, 'public')));
 mustacheConfig(app, root);
 
