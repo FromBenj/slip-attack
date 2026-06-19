@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Des frites dans le Slip</title>
     <link rel="icon" type="image/x-icon" href="/images/website/logo.ico">
-    <script>document.documentElement.style.visibility = 'hidden'</script>
+<!--    <script>document.documentElement.style.visibility = 'hidden'</script>-->
 </head>
 <body>
 {{> partials/defeat}}
