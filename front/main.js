@@ -1,6 +1,6 @@
 import './main.scss';
 import guessInputsRender from "./js/guess.js";
-// import {rotateFries} from "./js/fries.js";
+import {rotateFries} from "./js/fries.js";
 import {submitSolution} from "./js/submission.js";
 import {globalSetup} from "./js/global.js";
 import {choosePlayer} from "./js/welcome.js";
@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         choosePlayer();
     }
     if (game) {
-        // Fries animation stopped for dev
-        // rotateFries();
+        rotateFries();
         globalSetup();
         guessInputsRender();
         submitSolution();
