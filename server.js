@@ -6,7 +6,9 @@ import dotenv from "dotenv";
 import mustacheConfig from "./back/config/mustache-config.js";
 
 const root = process.cwd();
-dotenv.config({path: `.env.${process.env.NODE_ENV || "development"}`});
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
+}
 
 const app = express();
 
