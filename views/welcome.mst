@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenue !</title>
     <link rel="icon" type="image/x-icon" href="/images/website/logo.ico">
+    <link rel="stylesheet" href="{{mainStyles}}">
+
 </head>
 <body>
 <div id="welcome-page">

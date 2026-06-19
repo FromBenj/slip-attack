@@ -10,6 +10,7 @@ export default function setRoutes(app) {
 
         res.render("welcome", {
             mainScript: process.env.MAIN_SCRIPT,
+            mainStyles: process.env.MAIN_STYLES,
             players: players
         });
     });
@@ -32,6 +33,7 @@ export default function setRoutes(app) {
 
         res.render("game", {
             mainScript: process.env.MAIN_SCRIPT,
+            mainStyles: process.env.MAIN_STYLES,
             title: questions.current?.title ?? "",
             inputs: questions.current?.answer?.split('') ?? [],
             player: req.session.player,
