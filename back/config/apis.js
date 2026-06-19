@@ -26,7 +26,9 @@ export default function apiRoutes(app) {
     })
 
 
-    app.post("/api/guess/validation", (req, res) => {
+    app.post("/api/guess/validation", async (req, res) => {
+        console.log("start", req.session.player.score)
+
         let defeat = false;
         const guess = req.body?.guess;
         if (!guess) return res.status(400).json({
@@ -40,13 +42,22 @@ export default function apiRoutes(app) {
             answer: null,
             message: "questions state is missing"
         });
-        if ( guess !== questions.current.answer) {
-            req.session.lives --;
+
+        if (guess !== questions.current.answer) {
+            req.session.lives--;
             if (req.session.lives <= 0) defeat = true;
+        } else {
+            req.session.player.score++;
+            db.prepare("UPDATE players SET score = ? WHERE id = ?")
+                .run(req.session.player.score, req.session.player.id);
+            await req.session.save();
         }
+        console.log("new", req.session.player.score)
+
 
         return res.status(200).json({
             success: guess === questions.current.answer,
+            score: req.session.player.score,
             defeat: defeat,
             answer: questions.current.answer,
             message: "Validation sent"
@@ -62,10 +73,11 @@ export default function apiRoutes(app) {
         if (!question) return res.status(500).json({
             message: "error when getting a new random question"
         });
-        questions.current = question;
-        questions.showed.push(question.id);
+        req.session.questions.current = question;
+        req.session.questions.showed.push(question.id);
         req.session.lives = 3;
         await req.session.save();
+
         const inputTemplate = fs.readFileSync("views/partials/guess-inputs.mst", "utf-8");
         const livesTemplate = fs.readFileSync("views/partials/lives.mst", "utf-8");
 
@@ -73,7 +85,7 @@ export default function apiRoutes(app) {
             message: "success",
             question: question,
             inputs: questions.current?.answer?.split('') ?? [],
-            lives:Array(req.session.lives).fill('') ?? [],
+            lives: Array(req.session.lives).fill('') ?? [],
             templates: {
                 inputs: inputTemplate,
                 lives: livesTemplate

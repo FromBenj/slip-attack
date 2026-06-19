@@ -8,7 +8,7 @@ db.exec(`
     id      INTEGER PRIMARY KEY AUTOINCREMENT,
     name    TEXT UNIQUE,
     avatar  TEXT,
-    victory INTEGER
+    score INTEGER
   )
 `);
 

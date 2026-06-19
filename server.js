@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.static(path.join(root, 'public')));
 mustacheConfig(app, root);
 
+app.set('trust proxy', 1);
 app.use(session({
     store: new Store({client: db}),
     secret: process.env.SESSION_SECRET,

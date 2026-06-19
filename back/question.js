@@ -10,7 +10,6 @@ export function getRandomQues(req, showedIds) {
 
     const cleanShowedIds = cleanQuesIds(showedIds);
     const placeholders = cleanShowedIds.map(() => '?').join(',');
-
     const question = db.prepare(`
         SELECT *
         FROM questions
@@ -21,7 +20,7 @@ export function getRandomQues(req, showedIds) {
 
     if (!question) {
         req.session.questions = newQuesState;
-        getRandomQues(req, req.session.questions.showed);
+        return getRandomQues(req, req.session.questions.showed)
     }
 
     return question;

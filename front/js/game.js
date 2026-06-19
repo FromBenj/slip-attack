@@ -1,21 +1,19 @@
 import axios from "axios";
-import customListener from "./event.js";
 import Mustache from "mustache";
-import {autoJump} from "./guess.js";
-import {btnOpacityAnim, updateButtonRender} from "./submission.js";
+import guessInputsRender from "./guess.js";
 
 export function askNewQues() {
     const btn = document.getElementById("new-question-btn");
     if (!btn) return;
 
-    customListener(btn, setNewQues);
+    btn.addEventListener("pointerup", () => setNewQues());
 }
 
 
-export function setNewQues() {
+export function setNewQues(btnOpacity = true) {
     const question = document.getElementById("question");
-    const btn = document.getElementById("guess-button");
-    if (!question) return;
+
+    if (!question || typeof btnOpacity !== 'boolean') return;
     axios.get('/api/question/new')
         .then((res) => {
             const data = res.data;
@@ -34,9 +32,7 @@ export function setNewQues() {
             livesContainer.innerHTML = Mustache.render(data.templates.lives, {
                 lives: data.lives
             })
-            btnOpacityAnim(0.3);
-            updateButtonRender();
-            autoJump();
+            guessInputsRender(btnOpacity);
 
         })
         .catch((err) => console.log("Error when fetching a new question: ", err))

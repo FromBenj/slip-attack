@@ -1,15 +1,17 @@
 import gsap from "gsap";
+import {updateButtonRender} from "./submission.js";
 
 const green = "#2a9d8f";
 const red = "#e76f51";
 
-export function guessInputsRender() {
+export default function guessInputsRender(btnOpacity = true) {
     const inputContainer = document.getElementById("guess-inputs-container");
     const inputs = inputContainer?.querySelectorAll(".guess-input");
     if (!inputs.length) return;
 
     filledInputStyle();
     autoJump();
+    updateButtonRender(btnOpacity);
 }
 
 export function getGuess() {
@@ -36,27 +38,27 @@ export function renderLetter(input, status) {
         });
         return;
     }
-
     const tl = gsap.timeline();
     tl.to(input, {
         backgroundColor: red,
         duration: 0.5,
         ease: "power2.out",
-    });
-    tl.to(input, {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => {
-            input.value = "";
-            input.style.backgroundColor = "white";
-        }
-    });
-    tl.to(input, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out",
     })
+        .to(input, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            clearProps: "backgroundColor"
+        })
+        .to(input, {
+            opacity: 1,
+            duration: 0.2,
+            ease: "power2.in",
+            onstart: () => {
+                input.value = "";
+                guessInputsRender();
+            }
+        })
 }
 
 export function filterGuess(guess, answer) {
@@ -85,10 +87,16 @@ export function autoJump() {
         });
 
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Backspace' && input.value.length === 0) {
+            if (e.key === 'Backspace' && !input.value.length) {
                 const prev = input.previousElementSibling;
-                if (prev) prev.focus();
+                (prev || input).focus();
+            } else {
+                input.select();
             }
+        });
+
+        input.addEventListener('click', () => {
+            input.focus()
         });
     });
 }
@@ -99,6 +107,7 @@ function filledInputStyle() {
     if (!inputs.length) return;
 
     inputs.forEach((input, i) => {
+        input.classList.remove("input-filled");
         input.addEventListener("blur", (e) => {
             if (input.value.trim().length !== 1) {
                 input.value = "";

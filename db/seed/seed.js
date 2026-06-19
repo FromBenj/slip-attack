@@ -3,7 +3,7 @@ import players from "./players.js";
 import questions from "./questions.js";
 
 const insertPlayer = db.prepare(`
-  INSERT OR IGNORE INTO players (name, avatar, victory) VALUES (@name, @avatar, @victory)
+  INSERT OR IGNORE INTO players (name, avatar, score) VALUES (@name, @avatar, @score)
 `);
 const insertQuestion = db.prepare(`
   INSERT OR REPLACE INTO questions (title, answer, difficulty) VALUES (@title, @answer, @difficulty)

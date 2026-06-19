@@ -22,9 +22,8 @@
             <h4 id="tagline" class="bagel-font text-center">Protège tes frites !</h4>
         </div>
         <div class="d-flex justify-content-end align-items-center">
-            <div id="score" class="px-2 bagel-font h4 m-0">{{player.victory}}</div>
-            <div id="stars" class="px-2">Stars</div>
-            <div id="trophies" class="px-2">"Ranking"</div>
+            <div id="score" class="px-2 bagel-font h4 m-0">{{player.score}}</div>
+            <img id="trophy" class="px-2" src="/images/game/trophy.png" alt="Trophy">
         </div>
     </div>
     <div id="game-body">
