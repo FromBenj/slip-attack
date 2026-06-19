@@ -11,6 +11,7 @@ dotenv.config({path: `.env.${process.env.NODE_ENV || "development"}`});
 const app = express();
 
 app.use(express.json());
+app.use(express.static(path.join(root, 'dist')));
 app.use(express.static(path.join(root, 'public')));
 mustacheConfig(app, root);
 
