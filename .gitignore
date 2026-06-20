@@ -8,6 +8,7 @@ node_modules
 
 # DB
 game.db
+db/seed/seed.js
 
 # Perso
 z_notes.md

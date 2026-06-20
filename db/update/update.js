@@ -9,7 +9,7 @@ const insertQuestion = db.prepare(`
   INSERT OR REPLACE INTO questions (title, answer, difficulty) VALUES (@title, @answer, @difficulty)
 `);
 
-function seedPlayers(players) {
+function updatePlayers(players) {
     db.exec('BEGIN');
     try {
         for (const player of players) {
@@ -22,7 +22,7 @@ function seedPlayers(players) {
     }
 }
 
-function seedQuestions(questions) {
+function updateQuestions(questions) {
     db.exec('BEGIN');
     try {
         for (const question of questions) {
@@ -35,10 +35,10 @@ function seedQuestions(questions) {
     }
 }
 
-seedPlayers(players);
-seedQuestions(questions);
+updatePlayers(players);
+updateQuestions(questions);
 
-console.log('✅ Seeded');
+console.log('✅ updated');
 console.log(`${players.length} players and ${questions.length} questions`);
 
 db.close();
